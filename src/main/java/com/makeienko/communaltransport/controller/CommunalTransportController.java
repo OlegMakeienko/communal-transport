@@ -1,5 +1,6 @@
 package com.makeienko.communaltransport.controller;
 
+import com.makeienko.communaltransport.model.CommonRoute;
 import com.makeienko.communaltransport.model.CommunalTransport;
 import com.makeienko.communaltransport.request.DelayUpdateRequest;
 import com.makeienko.communaltransport.request.MarkAsFavouriteRequest;
@@ -97,5 +98,10 @@ public class CommunalTransportController {
         } catch (RuntimeException e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @PostMapping("/{individualServiceDtoId}/commonRoute/{communalTransportId}")
+    public CommonRoute createCommonRoute(@PathVariable Long individualServiceDtoId, @PathVariable Long communalTransportId) {
+        return communalTransportService.createCommonRoute(individualServiceDtoId, communalTransportId);
     }
 }
