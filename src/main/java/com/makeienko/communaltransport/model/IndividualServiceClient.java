@@ -14,7 +14,7 @@ public class IndividualServiceClient {
 
 
     public IndividualServiceDto getRoute(Long id) {
-        ResponseEntity<IndividualServiceDto> response = restTemplate.getForEntity(individualServiceUrl + "/routes" + id, IndividualServiceDto.class);
+        ResponseEntity<IndividualServiceDto> response = restTemplate.getForEntity(individualServiceUrl + "/routes/" + id, IndividualServiceDto.class);
         return response.getBody();
     }
 }
